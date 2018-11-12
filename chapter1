@@ -1,0 +1,67 @@
+set path=%path%;C:\python37
+# quit the environment quit()/control+D or Z
+17 // 3  # floor division discards the fractional part
+ 17 % 3  # the % operator returns the remainder of the division
+ >>> 'doesn\'t'  # use \' to escape the single quote...
+"doesn't"
+>>> "doesn't"  # ...or use double quotes instead
+"doesn't"
+>>> print(r'C:\some\name')  # note the r before the quote
+C:\some\name
+>>> word[:2] + word[2:]
+'Python'
+#list
+>>> squares = [1, 4, 9, 16, 25]
+>>> squares
+[1, 4, 9, 16, 25]
+cubes[3] = 64
+cubes.append(7 ** 3)
+#nest lists
+>>> x
+[['a', 'b', 'c'], [1, 2, 3]]
+x[0]
+#python for data science
+
+
+#convert json to normal
+import json
+records=[json.loads(line)for line in open(path)]
+records[0]['tz']
+
+#extract timezone
+time_zones=[rec['tz'] for rec in records if 'tz' in rec]
+normed_subset = count_subset.div(count_subset.sum(1), axis=0)
+normed_subset.plot(kind='barh', stacked=True)
+plt.legend()
+
+# import dat file
+users=pd.read_table('users.dat',sep='::',header=None,engine='python',names=unames)
+
+#export data file
+df.to_csv('df.csv', sep=';')
+
+#group data and check size
+ratings_by_title=df.groupby('title').size()
+
+#get titles names which has more than 120 number
+active_tiltes=ratings_by_title.index[ratings_by_title>=250]
+
+#assemble all of the data 
+years=range(1880,2011)
+names=['name', 'sex', 'births']
+piece=[]
+for year in years:
+    path='yob%d.txt'%year
+    frame= pd.read_csv(path,header=None,names=names)
+    frame['year']=year
+    piece.append(frame)
+	
+# Concatenate everything into a single DataFrame
+names = pd.concat(piece, ignore_index=True)
+
+#insert a column prop
+def add_prop(group):
+    births = group.births.astype(float)
+    group['prop']=births/births.sum()
+    return group
+names = names.groupby(['year', 'sex']).apply(add_prop)
